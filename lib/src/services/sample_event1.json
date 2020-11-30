@@ -1,0 +1,36 @@
+{
+  "first": {
+    "name": "History of Soul Food",
+    "description": "Join us, in celebrating the history of soul food: The orgin, most famous recipes and practices",
+    "date": "Tuesday, May 27 2020 ",
+    "time": "3:00pm"
+  },
+
+  "second": {
+    "name" : "Apple Pie tutorial",
+    "description" : "Once in a lifetime receipes provided by Chef Marcs",
+    "date" : "Tuesday, June 27 2020 ",
+    "time" : "5:00pm"
+  },
+
+  "third": {
+    "name" : "Hot dog tournament",
+    "description" : "Only the best survive, only the best can win, come compete!",
+    "date" : "Thursday, July 27 2020 ",
+    "time" : "9:00pm"
+  },
+
+  "fourth": {
+    "name" : "Post Corona Virus Cookout",
+    "description" : "Including corn bread, jollof rice, fried chicken, mac and cheese , peppered snails and more!",
+    "date" : "Tuesday, April 27 2020 ",
+    "time" : "1:00pm"
+  },
+
+  "fifth": {
+    "name" : "Last supper movie putlock",
+    "description" : "Celebrate life with your neighbours at 1826 SW Washington DC.20089 ",
+    "date" : "Tuesday, April 27 2020 ",
+    "time" : "8:00pm"
+  }
+}
