@@ -5,7 +5,7 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 void main() => runApp(ProfileTab());
-const title = 'Profile';
+const title = 'Student';
 
 class ProfileTab extends StatelessWidget {
   // This widget is the root of your application.
@@ -100,7 +100,7 @@ class _MyHomePageState extends State<MyHomePage> {
         // Center is a layout widget. It takes a single child and positions it
         // in the middle of the parent.
         child: new Container(
-          child: ProfileApp(),
+          child: ProfilePage(title: title),
         ),
       ),
     );

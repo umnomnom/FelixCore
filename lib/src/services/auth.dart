@@ -29,11 +29,7 @@ class Auth implements AuthBase {
       return null;
     }
 
-    return User(
-      uid: user.uid,
-      displayName: user.displayName,
-      photoUrl: user.photoURL,
-    );
+    return User(uid: user.uid);
   }
 
   @override

@@ -12,7 +12,6 @@ class ProfileEditPageChangeModel
     @required this.auth,
     this.name = '',
     // this.email = '',
-    // this.password = '',
     // this.formType = EmailSignInFormType.signIn,
     this.isLoading = false,
     this.submitted = false,
@@ -25,18 +24,18 @@ class ProfileEditPageChangeModel
   bool isLoading;
   bool submitted;
 
-  Future<void> submit(
-      BuildContext context, String name, String email, String bio) async {
-    updateWith(submitted: true, isLoading: true);
-    try {
-      Profile sampleProfile = Profile(name: name, email: email, bio: bio);
-      final database = Provider.of<Database>(context);
-      await database.updateProfile(sampleProfile);
-    } catch (e) {
-      updateWith(isLoading: false);
-      rethrow;
-    }
-  }
+  // Future<void> submit(
+  //     BuildContext context, String name, String email, String bio) async {
+  //   updateWith(submitted: true, isLoading: true);
+  //   try {
+  //     Profile sampleProfile = Profile(name: name, events: events);
+  //     final database = Provider.of<Database>(context);
+  //     await database.updateProfile(sampleProfile);
+  //   } catch (e) {
+  //     updateWith(isLoading: false);
+  //     rethrow;
+  //   }
+  // }
 
   String get primaryButtonText {
     return 'Update Profile';

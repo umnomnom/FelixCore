@@ -1,5 +1,8 @@
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:felix_core/src/services/database.dart';
+import 'package:felix_core/src/widget/category_selector.dart';
+import 'package:felix_core/src/widget/favorite_contacts.dart';
+import 'package:felix_core/src/widget/recent_chat.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
@@ -23,6 +26,8 @@ class ChatTab extends StatelessWidget {
         // Notice that the counter didn't reset back to zero; the application
         // is not restarted.
         primarySwatch: Colors.red,
+        primaryColor: Colors.red,
+        accentColor: Color(0xFFFEF9EB),
       ),
       home: ChatScreen(title: title),
     );
@@ -57,34 +62,45 @@ class _MyChatState extends State<ChatScreen> {
     // fast, so that you can just rebuild anything that needs updating rather
     // than having to individually change instances of widgets.
     return Scaffold(
+      backgroundColor: Theme.of(context).primaryColor,
       appBar: AppBar(
         // Here we take the value from the MyHomePage object that was created by
         // the App.build method, and use it to set our appbar title.
         title: Text(widget.title),
+        elevation: 0.0,
         actions: <Widget>[
-          FlatButton(
-            child: Text(
-              'Send',
-              style: TextStyle(
-                fontSize: 18.0,
-                color: Colors.white,
-              ),
-            ),
-            // onPressed: () => _confirmSignOut(context),
+          IconButton(
+            icon: Icon(Icons.search),
+            iconSize: 30.0,
+            color: Colors.white,
+            onPressed: () => {},
           ),
         ],
       ),
-      body: GridView.count(
-        crossAxisCount: 1,
-        // Generate 100 widgets that display their index in the List.
-        children: List.generate(7, (index) {
-          return Center(
-            child: Text(
-              'Message $index',
-              style: Theme.of(context).textTheme.headline5,
+      body: Column(
+        children: <Widget>[
+          CategorySelector(),
+          Expanded(
+            child: Container(
+              decoration: BoxDecoration(
+                color: Theme.of(context).accentColor,
+                borderRadius: BorderRadius.only(
+                  topLeft: Radius.circular(30.0),
+                  topRight: Radius.circular(30.0),
+                ),
+              ),
+              child: Padding(
+                padding: const EdgeInsets.only(bottom: 80.0),
+                child: Column(
+                  children: <Widget>[
+                    FavoriteContacts(),
+                    RecentChats(),
+                  ],
+                ),
+              ),
             ),
-          );
-        }),
+          ),
+        ],
       ),
     );
   }

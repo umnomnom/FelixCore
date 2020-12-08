@@ -3,10 +3,12 @@ import 'package:felix_core/src/models/profile.dart';
 import 'package:flutter/material.dart';
 
 final databaseReference = FirebaseFirestore.instance;
-CollectionReference users = databaseReference.collection('users');
+CollectionReference students = databaseReference.collection('students');
+CollectionReference events = databaseReference.collection('events');
 
 abstract class Database {
   Stream getProfileStream();
+  Stream getEventsStream(String eventType);
 
   Future<void> updateProfile(Profile profile);
 }
@@ -17,12 +19,17 @@ class DatabaseService implements Database {
   final String uid;
 
   Stream getProfileStream() {
-    Stream profileStream = users.doc(uid).snapshots();
+    Stream profileStream = students.doc(uid).snapshots();
     return profileStream;
   }
 
+  Stream getEventsStream(String eventType) {
+    Stream eventsStream = students.doc(eventType).snapshots();
+    return eventsStream;
+  }
+
   Future<void> updateProfile(Profile profile) async {
-    return users
+    return students
         .doc(uid)
         .set(profile.toMap())
         .then((value) => print("Profile updated"))

@@ -57,7 +57,7 @@ class _ProfileEditFormChangeNotifierState
 
   Future<void> _submit() async {
     try {
-      await model.submit(context, _name, _email, _bio);
+      //await model.submit(context, _name, _email, _bio);
       Navigator.of(context).pop();
     } on PlatformException catch (e) {
       PlatformExceptionAlertDialog(
